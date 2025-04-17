@@ -1,0 +1,233 @@
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #10B981;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Custom root styles */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* Custom footer styles */
+.footer-black {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.footer-black .text-white {
+  color: #ffffff !important;
+}
+
+body {
+  @apply font-sans;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+}
+
+/* Custom container */
+.container {
+  @apply max-w-5xl mx-auto p-4;
+  @apply md:p-6;
+  @apply lg:p-8;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Custom section header */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-header h2 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.section-header p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #6b7280;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Custom card */
+.card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom button */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #16a34a;
+  border: 1px solid #16a34a;
+}
+
+.btn-secondary:hover {
+  background-color: #f0fdf4;
+}
+
+/* Custom grid */
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Custom spacing */
+.space-y-8 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Custom text */
+.text-gradient {
+  background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom animation */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Custom shadow */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom border */
+.border-green {
+  border: 1px solid #dcfce7;
+}
+
+/* Custom padding */
+.p-8 {
+  padding: 2rem;
+}
+
+/* Custom margin */
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+/* Custom text size */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/* Custom text color */
+.text-green {
+  color: #16a34a;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}

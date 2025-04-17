@@ -11,6 +11,10 @@ A modern web application built with cutting-edge technologies including Framer M
 - React with Material-UI/Tailwind CSS
 - Vue.js with Vuetify
 - Next.js for performance
+- ScrollTrigger for scroll-based animations
+- React with Material-UI/Tailwind CSS
+- Vue.js with Vuetify
+- Next.js for performance
 
 ## Getting Started
 
