@@ -9,8 +9,8 @@ import { SocialIcon } from 'react-social-icons';
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-green-50 to-white">
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -34,14 +34,7 @@ export default function Footer() {
                   <p className="text-gray-600">info@greendotenergy.com.pg</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <MapPinIcon className="w-6 h-6 text-green-600" />
-                <div>
-                  <p className="font-medium">Address</p>
-                  <p className="text-gray-600">P O Box 148 Gordons</p>
-                  <p className="text-gray-600">Port Moresby</p>
-                </div>
-              </div>
+
               <div className="flex items-center gap-4">
                 <ClockIcon className="w-6 h-6 text-green-600" />
                 <div>
@@ -54,38 +47,41 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Our Location */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            <h2 className="text-2xl font-bold text-green-800">Quick Links</h2>
+            <h2 className="text-2xl font-bold text-green-800">Our Location</h2>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <BuildingOffice2Icon className="w-5 h-5 text-green-600" />
-                <a href="/services" className="text-gray-600 hover:text-green-600 transition-colors">
-                  Our Services
-                </a>
+                <BuildingOffice2Icon className="w-6 h-6 text-green-600" />
+                <div>
+                  <p className="font-medium">Head Office</p>
+                  <p className="text-gray-600">Port Moresby, NCD</p>
+                  <p className="text-gray-600">P.O Box 148, Gordons, NCD</p>
+                  <p className="text-gray-600">Papua New Guinea</p>
+                </div>
               </div>
               <div className="flex items-center gap-4">
-                <ClockIcon className="w-5 h-5 text-green-600" />
-                <a href="/about" className="text-gray-600 hover:text-green-600 transition-colors">
-                  About Us
-                </a>
+                <MapPinIcon className="w-6 h-6 text-green-600" />
+                <div>
+                  <p className="font-medium">MOMASE Branch</p>
+                  <p className="text-gray-600">P.O Box 4237, LAE</p>
+                  <p className="text-gray-600">Taraka, Morobe Province</p>
+                  <p className="text-gray-600">Papua New Guinea</p>
+                </div>
               </div>
               <div className="flex items-center gap-4">
-                <EnvelopeIcon className="w-5 h-5 text-green-600" />
-                <a href="/contact" className="text-gray-600 hover:text-green-600 transition-colors">
-                  Contact
-                </a>
-              </div>
-              <div className="flex items-center gap-4">
-                <LinkIcon className="w-5 h-5 text-green-600" />
-                <a href="/" className="text-gray-600 hover:text-green-600 transition-colors">
-                  Home
-                </a>
+                <GlobeAltIcon className="w-6 h-6 text-green-600" />
+                <div>
+                  <p className="font-medium">Highlands Region</p>
+                  <p className="text-gray-600">P.O Box 653, Kundiawa</p>
+                  <p className="text-gray-600">Simbu Province</p>
+                  <p className="text-gray-600">Papua New Guinea</p>
+                </div>
               </div>
             </div>
           </motion.div>
