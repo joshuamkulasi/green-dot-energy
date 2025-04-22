@@ -59,7 +59,7 @@ function NavBar() {
         className: "bg-white/70 backdrop-blur-md shadow-lg fixed w-full z-30 top-0 left-0 border-b border-green-100",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-20 md:h-24",
+                className: "max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16 md:h-20",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: "/",
@@ -68,9 +68,9 @@ function NavBar() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 src: "/logo.png",
                                 alt: "Green Dot Energy Logo",
-                                width: 120,
-                                height: 120,
-                                className: "w-20 h-20 md:w-24 md:h-24"
+                                width: 60,
+                                height: 60,
+                                className: "w-[3.75rem] h-[3.75rem] md:w-[4.5rem] md:h-[4.5rem] transform origin-left scale-x-105"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/NavBar.tsx",
                                 lineNumber: 31,

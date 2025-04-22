@@ -26,14 +26,14 @@ export default function NavBar() {
 
   return (
     <nav className="bg-white/70 backdrop-blur-md shadow-lg fixed w-full z-30 top-0 left-0 border-b border-green-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-20 md:h-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16 md:h-20">
         <Link href="/" className="flex items-center gap-4 select-none">
           <Image 
             src="/logo.png" 
             alt="Green Dot Energy Logo" 
-            width={120} 
-            height={120} 
-            className="w-20 h-20 md:w-24 md:h-24"
+            width={60} 
+            height={60} 
+            className="w-[3.75rem] h-[3.75rem] md:w-[4.5rem] md:h-[4.5rem] transform origin-left scale-x-105"
           />
           <span className="font-extrabold text-transparent text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-green-600 to-green-400 tracking-tight drop-shadow">Green Dot Energy</span>
         </Link>

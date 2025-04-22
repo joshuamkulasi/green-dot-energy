@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { BoltIcon, SunIcon, CogIcon, CheckIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const services = [
   {
@@ -35,22 +37,28 @@ const services = [
   }
 ];
 
+const partners = [
+  { name: 'Paradise Foods Limited', description: 'Long-term partner in electrical solutions', logo: '/services/partners/paradise-foods-logo-removebg-preview.png' },
+  { name: 'Digicel PNG', description: 'Trusted provider of electrical services', logo: '/services/partners/digicel-logo-removebg-preview.png' },
+  { name: 'Aku Lodge Ltd', description: 'Partner in renewable energy solutions', logo: '/services/partners/aku-holdings.png' }
+];
+
 function ServiceCard({ icon: Icon, title, description, details }: { icon: any, title: string, description: string, details: string[] }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-2xl shadow-xl p-6 border border-green-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+      className="flex flex-col h-full bg-white rounded-2xl shadow-xl p-6 border border-green-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
     >
       <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 to-green-300/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300" />
-      <div className="relative">
+      <div className="relative flex flex-col h-full">
         <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4 mx-auto">
           <Icon className="w-8 h-8 text-green-600" />
         </div>
         <h2 className="text-xl font-bold text-green-800 mb-4 text-center">{title}</h2>
         <p className="text-gray-600 mb-6 text-center">{description}</p>
-        <ul className="space-y-2 text-gray-600 text-sm w-full">
+        <ul className="space-y-2 text-gray-600 text-sm w-full mb-6">
           {details.map((detail, index) => (
             <li key={index} className="flex items-center w-full">
               <CheckIcon className="w-5 h-5 mr-2 flex-shrink-0 text-green-500" />
@@ -58,6 +66,14 @@ function ServiceCard({ icon: Icon, title, description, details }: { icon: any, t
             </li>
           ))}
         </ul>
+        <div className="mt-auto text-left">
+          <Link
+            href={`/contact?service=${encodeURIComponent(title)}`}
+            className="inline-block px-4 py-2 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition text-center"
+          >
+            Enquire Now
+          </Link>
+        </div>
       </div>
     </motion.div>
   );
@@ -115,11 +131,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {[
-              { name: 'Paradise Foods Limited', description: 'Long-term partner in electrical solutions' },
-              { name: 'Digicel PNG', description: 'Trusted provider of electrical services' },
-              { name: 'Aku Lodge Ltd', description: 'Partner in renewable energy solutions' }
-            ].map((client, index) => (
+            {partners.map((client, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -128,9 +140,14 @@ export default function ServicesSection() {
                 className="bg-white rounded-2xl shadow-xl p-4 md:p-6 border border-green-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 to-green-300/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300" />
-                <div className="relative">
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">{client.name}</h3>
-                  <p className="text-sm md:text-base text-gray-600">{client.description}</p>
+                <div className="relative text-center md:text-left">
+                  {client.logo && (
+                    <div className="mb-4 flex items-center justify-center">
+                      <Image src={client.logo} alt={`${client.name} logo`} width={120} height={120} className="object-contain" />
+                    </div>
+                  )}
+                  <h3 className="text-xl md:text-xl font-semibold text-gray-900 mb-2">{client.name}</h3>
+                  <p className="text-base md:text-base text-gray-600">{client.description}</p>
                   <div className="mt-3 md:mt-4 flex items-center justify-center">
                     <div className="w-12 md:w-16 h-1 bg-green-500 rounded-full transition-all duration-300" />
                   </div>

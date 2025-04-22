@@ -1,15 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import HeroSection from './components/HeroSection';
 import { BoltIcon, SunIcon, CogIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
+
+const HeroSlider = dynamic(() => import('./components/HeroSlider'), { ssr: false });
+
+// common framer-motion props
+const fadeUpProps = { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.6 } };
 
 function ServiceCard({ icon: Icon, title, description }: { icon: any, title: string, description: string }) {
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      {...fadeUpProps}
       className="bg-white rounded-2xl shadow-xl p-8 border border-green-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
     >
       <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 to-green-300/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300" />
@@ -24,48 +28,52 @@ function ServiceCard({ icon: Icon, title, description }: { icon: any, title: str
   );
 }
 
+const partners = [
+  { name: 'Paradise Foods Limited', description: 'Long-term partner in electrical solutions', logo: '/services/partners/paradise-foods-logo-removebg-preview.png' },
+  { name: 'Digicel PNG', description: 'Trusted provider of electrical services', logo: '/services/partners/digicel-logo-removebg-preview.png' },
+  { name: 'Aku Lodge Ltd', description: 'Partner in renewable energy solutions', logo: '/services/partners/aku-holdings.png' }
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-green-50 to-white">
-      <HeroSection />
+      <HeroSlider />
       
-      {/* Service Highlights */}
-      <section className="py-24 sm:py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8">
-              Our Core Services
-            </h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-              We provide comprehensive electrical and renewable energy solutions for businesses and homes in PNG
-            </p>
-          </div>
-          
-          <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard 
-              icon={BoltIcon} 
-              title="Electrical Contracting" 
-              description="From basic wiring to large-scale commercial projects, we deliver safe, reliable electrical solutions tailored to your needs." 
-            />
-            <ServiceCard 
-              icon={SunIcon} 
-              title="Solar & Renewables" 
-              description="Harness the power of the sun with our solar panel installations, battery storage solutions, and green energy consulting services." 
-            />
-            <ServiceCard 
-              icon={CogIcon} 
-              title="Maintenance" 
-              description="Ensure your systems run smoothly with our comprehensive maintenance plans and 24/7 emergency response services." 
-            />
-          </div>
+      {/* Core Services Section */}
+      <section aria-labelledby="core-services-heading" className="py-20 bg-gradient-to-br from-white via-green-50 to-green-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+          <h2 id="core-services-heading" className="text-4xl font-bold text-gray-900 mb-4">Our Core Services</h2>
+          <p className="text-lg text-gray-600">We provide comprehensive electrical and renewable energy solutions for businesses and homes in PNG</p>
         </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          <ServiceCard
+            icon={BoltIcon}
+            title="Electrical Contracting"
+            description="From basic wiring to large-scale commercial projects, we deliver safe, reliable electrical solutions tailored to your needs."
+          />
+          <ServiceCard
+            icon={SunIcon}
+            title="Solar & Renewables"
+            description="Harness the power of the sun with our solar panel installations, battery storage solutions, and green energy consulting services."
+          />
+          <ServiceCard
+            icon={CogIcon}
+            title="Maintenance"
+            description="Ensure your systems run smoothly with our comprehensive maintenance plans and 24/7 emergency response services."
+          />
+        </motion.div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 sm:py-20 lg:py-32 bg-gradient-to-br from-white to-green-50">
+      <section aria-labelledby="why-choose-us-heading" className="py-24 sm:py-20 lg:py-32 bg-gradient-to-br from-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8">
+            <h2 id="why-choose-us-heading" className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8">
               Why Choose Us
             </h2>
             <p className="mt-2 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
@@ -130,8 +138,8 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative isolate overflow-hidden mb-20 sm:mb-28">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-8 pb-24">
+      <section className="relative isolate overflow-hidden mb-8 sm:mb-12">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-8 pb-12">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Ready to Power Your Future?
@@ -158,7 +166,7 @@ export default function Home() {
       </section>
 
       {/* Regular Clients Section */}
-      <section className="py-24 sm:py-20 lg:py-32">
+      <section className="py-16 sm:py-12 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8">
@@ -175,11 +183,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {[
-              { name: 'Paradise Foods Limited', description: 'Long-term partner in electrical solutions' },
-              { name: 'Digicel PNG', description: 'Trusted provider of electrical services' },
-              { name: 'Aku Lodge Ltd', description: 'Partner in renewable energy solutions' }
-            ].map((client, index) => (
+            {partners.map((client, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -188,9 +192,14 @@ export default function Home() {
                 className="bg-white rounded-2xl shadow-xl p-4 md:p-6 border border-green-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 to-green-300/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300" />
-                <div className="relative">
+                <div className="relative text-center md:text-left">
+                  {client.logo && (
+                    <div className="mb-4 flex items-center justify-center">
+                      <Image src={client.logo} alt={`${client.name} logo`} loading="lazy" width={120} height={120} className="object-contain" />
+                    </div>
+                  )}
                   <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">{client.name}</h3>
-                  <p className="text-sm md:text-base text-gray-600">{client.description}</p>
+                  <p className="text-base md:text-base text-gray-600">{client.description}</p>
                   <div className="mt-3 md:mt-4 flex items-center justify-center">
                     <div className="w-12 md:w-16 h-1 bg-green-500 rounded-full transition-all duration-300" />
                   </div>
