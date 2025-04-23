@@ -3,8 +3,9 @@ export const dynamic = 'force-dynamic';
 
 import { ContactForm } from '../components/ContactForm';
 
-export default function ContactPage({ searchParams }) {
-  const service = Array.isArray(searchParams.service) ? searchParams.service[0] : searchParams.service || '';
+export default async function ContactPage({ searchParams }) {
+  const params = await searchParams;
+  const service = Array.isArray(params.service) ? params.service[0] : params.service || '';
 
   return (
     <main className="min-h-screen px-4 py-16">

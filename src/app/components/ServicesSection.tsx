@@ -1,19 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BoltIcon, SunIcon, CogIcon, CheckIcon } from '@heroicons/react/24/solid';
+import { BoltIcon, SunIcon, CogIcon, CheckIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const services = [
   {
     title: 'Electrical Contracting',
-    description: 'Full-service electrical solutions for businesses and homes in PNG.',
+    description: 'Comprehensive electrical services including wiring, lighting design, power systems, and maintenance for homes and businesses in PNG.',
     icon: BoltIcon,
     details: [
       'All electrical works & wiring',
       'Industrial power quality analysis',
-      'Generator sizing & installation'
+      'Generator sizing & installation',
+      'Lighting design & installation',
+      'Electrical panel upgrades & circuit breaker replacement',
+      'Surge protection & power quality mitigation',
+      'Preventative maintenance scheduling',
+      'Feasibility studies & site assessment'
     ]
   },
   {
@@ -21,7 +26,15 @@ const services = [
     description: 'Solar panel installations, battery storage, and green energy consulting.',
     icon: SunIcon,
     details: [
-      'Solar, hydro & wind development',
+      'Solar design & installation',
+      'Wind design & installation',
+      'Hydro design & installation',
+      'Battery storage system design & installation',
+      'Hybrid renewable system integration',
+      'Off-grid & microgrid solutions',
+      'Grid-tied system installation & commissioning',
+      'Solar panel cleaning & maintenance',
+      'Performance monitoring & remote diagnostics',
       'Energy audit for cost savings'
     ]
   },
@@ -32,7 +45,13 @@ const services = [
     details: [
       'Circuit thermal imaging',
       'Earth ground test',
-      'Generator repair, servicing & maintenance'
+      'Generator repair, servicing & maintenance',
+      'Scheduled preventative maintenance contracts',
+      'Emergency 24/7 repair response',
+      'Load bank & backup generator testing',
+      'Electrical safety compliance inspections',
+      'Infrared thermography inspections',
+      'Power quality diagnostics & reporting'
     ]
   }
 ];
@@ -82,6 +101,22 @@ function ServiceCard({ icon: Icon, title, description, details }: { icon: any, t
 export default function ServicesSection() {
   return (
     <>
+      {/* Why Choose Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Why Choose Green Dot Energy?</h2>
+          <p className="text-lg text-gray-600 text-center mb-8">Our commitment to excellence ensures every project is delivered on time, on budget, and to the highest safety and quality standards:</p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700">
+            <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mr-2"/> Certified & Experienced Team</li>
+            <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mr-2"/> Tailored Solutions for Every Project</li>
+            <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mr-2"/> Sustainable & Environmentally Friendly Practices</li>
+            <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mr-2"/> Competitive Pricing & Transparent Quotes</li>
+            <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mr-2"/> 24/7 Emergency Support & Maintenance</li>
+            <li className="flex items-start"><CheckIcon className="w-6 h-6 text-green-500 mr-2"/> Local Insights & Community Focus</li>
+          </ul>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-br from-white via-green-50 to-green-100">
         <div className="container mx-auto px-4">
           <motion.h2 
@@ -102,6 +137,36 @@ export default function ServicesSection() {
               <ServiceCard key={index} {...service} />
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-green-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            <details className="group bg-white p-4 rounded-lg border border-green-200 shadow transition hover:shadow-lg">
+              <summary className="flex justify-between items-center cursor-pointer text-lg font-medium text-green-800">
+                <span>What does Green Dot Energy guarantee?</span>
+                <ChevronDownIcon className="w-6 h-6 text-green-500 transform transition-transform duration-300 group-open:rotate-180" />
+              </summary>
+              <p className="mt-2 text-gray-600">We guarantee safety, timely delivery, and compliance with all industry standards in every project.</p>
+            </details>
+            <details className="group bg-white p-4 rounded-lg border border-green-200 shadow transition hover:shadow-lg">
+              <summary className="flex justify-between items-center cursor-pointer text-lg font-medium text-green-800">
+                <span>Can you customize systems for remote locations?</span>
+                <ChevronDownIcon className="w-6 h-6 text-green-500 transform transition-transform duration-300 group-open:rotate-180" />
+              </summary>
+              <p className="mt-2 text-gray-600">Yes, we specialize in designing off-grid and hybrid systems tailored for remote or rural areas.</p>
+            </details>
+            <details className="group bg-white p-4 rounded-lg border border-green-200 shadow transition hover:shadow-lg">
+              <summary className="flex justify-between items-center cursor-pointer text-lg font-medium text-green-800">
+                <span>How do I request a quote?</span>
+                <ChevronDownIcon className="w-6 h-6 text-green-500 transform transition-transform duration-300 group-open:rotate-180" />
+              </summary>
+              <p className="mt-2 text-gray-600">Use the “Enquire Now” button on each service or contact us directly via email or phone.</p>
+            </details>
+          </div>
         </div>
       </section>
 
